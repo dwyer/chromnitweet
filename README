@@ -20,4 +20,11 @@ If you don't feel like installing Java or the compiler, just run:
 
         make debug
 
+If you don't feel like installing Make, run:
+
+        cat background.js >background.min.js
+        cat chrome_ex_oauthsimple.js chrome_ex_oauth.js >chrome_ex_oauth.min.js
+
+If you're on Windows, I don't know what to tell you.
+
 [1] https://developers.google.com/closure/compiler/
