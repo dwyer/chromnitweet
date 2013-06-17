@@ -6,3 +6,16 @@ with the syntax "tw [some string of 140 or less characters]".
 https://chrome.google.com/webstore/detail/ofhffnelacegjkgcbohojhebkbehikep?hl=en-US
 
 Useless fact: Chromnitweet is a portmanteau of Chrome, Omnibox and Tweet.
+
+INSTALLATION
+
+The build system depends on GNU make, Zip, Java and the Closure compiler[1]. You
+probably need to be on Linux or Mac to use the Makefile as is. The compiler
+should be at $HOME/bin/compiler.jar but you can specify a new location by
+running:
+
+        make JSC='java -jar /path/to/compiler.jar'
+
+Or just edit the Makefile.
+
+[1] https://developers.google.com/closure/compiler/
