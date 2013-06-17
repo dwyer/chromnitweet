@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2001, Casey Dwyer
+ * Copyright (c) 2013, Casey Dwyer
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without
@@ -29,7 +29,7 @@ var oauth = ChromeExOAuth.initBackgroundPage({
   'access_url': 'https://api.twitter.com/oauth/access_token',
   'consumer_key': 'pQtmomTX1QoatYhOOuHQNA',
   'consumer_secret': '91d5DacujLq6DZfe6vpIARTwrxKYAbm230N8KbnasM',
-  'scope': 'https://api.twitter.com/1/statuses/update.json',
+  'scope': 'https://api.twitter.com/1.1/statuses/update.json',
   'app_name': 'Chromnitweet'
 });
 
@@ -50,7 +50,7 @@ oauth.authorize(function() {
     });
   });
   chrome.omnibox.onInputEntered.addListener(function(text) {
-    var url = 'https://api.twitter.com/1/statuses/update.json';
+    var url = 'https://api.twitter.com/1.1/statuses/update.json';
     var request = {'method': 'POST', 'parameters': {'status': text}}
     function callback(resp, xhr) {
       var json = JSON.parse(resp);

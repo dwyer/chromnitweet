@@ -1,9 +1,16 @@
 {
-  "name": "Chromnitweet",
-  "version": "1.0.1",
-  "description": "Update your Twitter status right from Chrome's Omnibox (URL bar).",
-  "omnibox": {"keyword": "tw"},
-  "icons": {"128": "icon128.png", "48": "icon48.png", "16": "icon16.png"},
-  "background_page": "background.html",
-  "permissions": ["notifications", "tabs", "https://api.twitter.com/"]
+    "name": "Chromnitweet",
+    "manifest_version": 2,
+    "version": "1.0.3",
+    "description": "Update your Twitter status right from Chrome's Omnibox (URL bar).",
+    "omnibox": {"keyword": "tw"},
+    "icons": {"128": "icon128.png", "48": "icon48.png", "16": "icon16.png"},
+    "background": {
+        "scripts": [
+            "chrome_ex_oauthsimple.js",
+            "chrome_ex_oauth.js",
+            "background.js"
+        ]
+    },
+    "permissions": ["notifications", "tabs", "https://api.twitter.com/"]
 }
