@@ -16,20 +16,22 @@ PNG=error.png icon128.png icon16.png icon48.png
 BG_JS=background.js
 OA_JS=chrome_ex_oauthsimple.js chrome_ex_oauth.js
 
-all: $(PACKAGE)
-
-debug: JSC=cat
-debug: all
-
-$(PACKAGE): $(MANIFEST) $(HTML) $(MIN_JS) $(PNG)
-	$(ZIP) $@ $+
+all: $(MIN_JS)
 
 $(BG_MIN_JS): $(BG_JS)
 
 $(OA_MIN_JS): $(OA_JS)
 
 %.min.js:
-	$(JSC) $+ >$@
+	$(JSC) $^ >$@
+
+debug: JSC=cat
+debug: all
+
+zip: $(PACKAGE)
+
+$(PACKAGE): $(MANIFEST) $(HTML) $(MIN_JS) $(PNG)
+	$(ZIP) $@ $^
 
 clean:
 	$(RM) $(MIN_JS) $(PACKAGE)
