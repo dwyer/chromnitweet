@@ -1,14 +1,16 @@
 # js compiler
-JSC=java -jar $(HOME)/bin/compiler.jar
+COMPILER=$(HOME)/bin/compiler.jar
+JSC=java -jar $(COMPILER) --js
 ZIP=zip
 
 # compiled files
+PACKAGE=chromnitweet.zip
 BG_MIN_JS=background.min.js
 OA_MIN_JS=chrome_ex_oauth.min.js
 MIN_JS=$(BG_MIN_JS) $(OA_MIN_JS)
-PACKAGE=chromnitweet.zip
 
 # source files
+MANIFEST=manifest.json
 HTML=background.html chrome_ex_oauth.html
 PNG=error.png icon128.png icon16.png icon48.png
 BG_JS=background.js
@@ -16,15 +18,18 @@ OA_JS=chrome_ex_oauthsimple.js chrome_ex_oauth.js
 
 all: $(PACKAGE)
 
-$(PACKAGE): manifest.json $(HTML) $(PNG) $(MIN_JS)
-	$(ZIP) $(PACKAGE) $+
+debug: JSC=cat
+debug: all
+
+$(PACKAGE): $(MANIFEST) $(HTML) $(MIN_JS) $(PNG)
+	$(ZIP) $@ $+
 
 $(BG_MIN_JS): $(BG_JS)
 
 $(OA_MIN_JS): $(OA_JS)
 
 %.min.js:
-	$(JSC) --js $+ --js_output_file $@
+	$(JSC) $+ >$@
 
 clean:
 	$(RM) $(MIN_JS) $(PACKAGE)

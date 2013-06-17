@@ -14,8 +14,10 @@ probably need to be on Linux or Mac to use the Makefile as is. The compiler
 should be at $HOME/bin/compiler.jar but you can specify a new location by
 running:
 
-        make JSC='java -jar /path/to/compiler.jar'
+        make COMPILER=/path/to/compiler.jar
 
-Or just edit the Makefile.
+If you don't feel like installing Java or the compiler, just run:
+
+        make debug
 
 [1] https://developers.google.com/closure/compiler/
