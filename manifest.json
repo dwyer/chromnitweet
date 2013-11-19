@@ -10,7 +10,8 @@
         "scripts": [
             "chrome_ex_oauth.min.js",
             "background.min.js"
-        ]
+        ],
+        "persistent": false
     },
     "permissions": ["notifications", "tabs", "https://api.twitter.com/"]
 }
