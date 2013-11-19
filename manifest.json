@@ -2,7 +2,7 @@
     "name": "Chromnitweet",
     "short_name": "Chromnitweet",
     "manifest_version": 2,
-    "version": "1.0.4",
+    "version": "1.0.5",
     "description": "Update your Twitter status right from Chrome's Omnibox (URL bar).",
     "omnibox": {"keyword": "tw"},
     "icons": {"128": "icon128.png", "48": "icon48.png", "16": "icon16.png"},
