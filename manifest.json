@@ -13,5 +13,6 @@
         ],
         "persistent": false
     },
+    "web_accessible_resources": ["chrome_ex_oauth.html"],
     "permissions": ["notifications", "tabs", "https://api.twitter.com/"]
 }
