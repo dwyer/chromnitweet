@@ -1,5 +1,6 @@
 {
     "name": "Chromnitweet",
+    "short_name": "Chromnitweet",
     "manifest_version": 2,
     "version": "1.0.4",
     "description": "Update your Twitter status right from Chrome's Omnibox (URL bar).",
