@@ -46,7 +46,7 @@ function sendNotification(icon, title, content) {
 oauth.authorize(function() {
   chrome.omnibox.onInputChanged.addListener(function(text) {
     chrome.omnibox.setDefaultSuggestion({
-      description: String(140-text.length)
+      description: String(140-text.length) + ' characters remaining.'
     });
   });
   chrome.omnibox.onInputEntered.addListener(function(text) {
