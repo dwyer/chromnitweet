@@ -33,14 +33,17 @@ var oauth = ChromeExOAuth.initBackgroundPage({
     'app_name': 'Chromnitweet'
 });
 
-function sendNotification(icon, title, content) {
-    var notification = webkitNotifications.createNotification(
-            icon,
-            title,
-            content
-            );
-    notification.show();
-    window.setTimeout(function() {notification.cancel()}, 3000);
+function notify(iconUrl, title, message) {
+    chrome.notifications.create('chromnitweet', {
+        type: 'basic',
+        iconUrl: iconUrl,
+        title: title,
+        message: message
+    }, function(id) {
+        window.setTimeout(function() {
+            chrome.notifications.clear(id, function() {});
+        }, 3000);
+    });
 }
 
 oauth.authorize(function() {
@@ -52,13 +55,14 @@ oauth.authorize(function() {
     chrome.omnibox.onInputEntered.addListener(function(text) {
         var url = 'https://api.twitter.com/1.1/statuses/update.json';
         var request = {'method': 'POST', 'parameters': {'status': text}}
-        function callback(resp, xhr) {
-            var json = JSON.parse(resp);
-            if (json['error']) {
-                sendNotification('error.png', 'Error!', json.error);
+        function callback(response, xhr) {
+            var result = JSON.parse(response);
+            if (result.errors !== undefined) {
+                notify('icon128.png', 'Oops! There was an error.',
+                    result.errors[0].message);
             } else {
-                sendNotification(json.user.profile_image_url, json.user.name,
-                    json.text);
+                notify(result.user.profile_image_url_https, result.user.name,
+                    result.text);
             }
         }
         oauth.sendSignedRequest(url, callback, request);

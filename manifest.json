@@ -14,5 +14,6 @@
         "persistent": false
     },
     "web_accessible_resources": ["chrome_ex_oauth.html"],
-    "permissions": ["notifications", "tabs", "https://api.twitter.com/"]
+    "permissions": ["notifications", "tabs", "https://api.twitter.com/", "https://abs.twimg.com/"],
+    "content_security_policy": "script-src 'self'; object-src 'self'; img-src 'self' https://abs.twimg.com"
 }
