@@ -24,42 +24,43 @@
  */
 
 var oauth = ChromeExOAuth.initBackgroundPage({
-  'request_url': 'https://api.twitter.com/oauth/request_token',
-  'authorize_url': 'https://api.twitter.com/oauth/authorize',
-  'access_url': 'https://api.twitter.com/oauth/access_token',
-  'consumer_key': 'pQtmomTX1QoatYhOOuHQNA',
-  'consumer_secret': '91d5DacujLq6DZfe6vpIARTwrxKYAbm230N8KbnasM',
-  'scope': 'https://api.twitter.com/1.1/statuses/update.json',
-  'app_name': 'Chromnitweet'
+    'request_url': 'https://api.twitter.com/oauth/request_token',
+    'authorize_url': 'https://api.twitter.com/oauth/authorize',
+    'access_url': 'https://api.twitter.com/oauth/access_token',
+    'consumer_key': 'pQtmomTX1QoatYhOOuHQNA',
+    'consumer_secret': '91d5DacujLq6DZfe6vpIARTwrxKYAbm230N8KbnasM',
+    'scope': 'https://api.twitter.com/1.1/statuses/update.json',
+    'app_name': 'Chromnitweet'
 });
 
 function sendNotification(icon, title, content) {
-  var notification = webkitNotifications.createNotification(
-    icon,
-    title,
-    content
-  );
-  notification.show();
-  window.setTimeout(function() {notification.cancel()}, 3000);
+    var notification = webkitNotifications.createNotification(
+            icon,
+            title,
+            content
+            );
+    notification.show();
+    window.setTimeout(function() {notification.cancel()}, 3000);
 }
 
 oauth.authorize(function() {
-  chrome.omnibox.onInputChanged.addListener(function(text) {
-    chrome.omnibox.setDefaultSuggestion({
-      description: String(140-text.length) + ' characters remaining.'
+    chrome.omnibox.onInputChanged.addListener(function(text) {
+        chrome.omnibox.setDefaultSuggestion({
+            description: String(140-text.length) + ' characters remaining.'
+        });
     });
-  });
-  chrome.omnibox.onInputEntered.addListener(function(text) {
-    var url = 'https://api.twitter.com/1.1/statuses/update.json';
-    var request = {'method': 'POST', 'parameters': {'status': text}}
-    function callback(resp, xhr) {
-      var json = JSON.parse(resp);
-      if (json['error']) {
-        sendNotification('error.png', 'Error!', json.error);
-      } else {
-        sendNotification(json.user.profile_image_url, json.user.name, json.text);
-      }
-    }
-    oauth.sendSignedRequest(url, callback, request);
-  });
+    chrome.omnibox.onInputEntered.addListener(function(text) {
+        var url = 'https://api.twitter.com/1.1/statuses/update.json';
+        var request = {'method': 'POST', 'parameters': {'status': text}}
+        function callback(resp, xhr) {
+            var json = JSON.parse(resp);
+            if (json['error']) {
+                sendNotification('error.png', 'Error!', json.error);
+            } else {
+                sendNotification(json.user.profile_image_url, json.user.name,
+                    json.text);
+            }
+        }
+        oauth.sendSignedRequest(url, callback, request);
+    });
 });
