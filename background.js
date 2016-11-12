@@ -37,7 +37,7 @@ oauth.authorize(function() {
         function callback(response, xhr) {
             var result = JSON.parse(response);
             if (result.errors !== undefined) {
-                notify('icon128.png', 'Oops! There was an error.',
+                notify('img/icon128.png', 'Oops! There was an error.',
                     result.errors[0].message);
             } else {
                 notify(result.user.profile_image_url_https, result.user.name,

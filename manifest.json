@@ -5,7 +5,11 @@
     "version": "1.0.7",
     "description": "Update your Twitter status right from Chrome's Omnibox (URL bar).",
     "omnibox": {"keyword": "tw"},
-    "icons": {"128": "icon128.png", "48": "icon48.png", "16": "icon16.png"},
+    "icons": {
+      "128": "img/icon128.png",
+      "48": "img/icon48.png",
+      "16": "img/icon16.png"
+    },
     "background": {
         "scripts": [
             "chrome_ex_oauth.min.js",
