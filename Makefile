@@ -7,7 +7,7 @@ PACKAGE=chromnitweet.zip
 MANIFEST=manifest.json
 HTML=background.html chrome_ex_oauth.html
 PNG=img/*
-JS=background.js chrome_ex_oauthsimple.js chrome_ex_oauth.js onload.js
+JS=background.js chrome_ex_oauthsimple.js chrome_ex_oauth.js onload.js twitter-text.js
 
 all: $(PACKAGE)
 

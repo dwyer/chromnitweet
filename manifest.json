@@ -15,6 +15,7 @@
             "chrome_ex_oauthsimple.js",
             "chrome_ex_oauth.js",
             "onload.js",
+            "twitter-text.js",
             "background.js"
         ],
         "persistent": false
