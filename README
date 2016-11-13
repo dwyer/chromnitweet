@@ -6,3 +6,10 @@ with the syntax "tw [some string of 140 or less characters]".
 https://chrome.google.com/webstore/detail/ofhffnelacegjkgcbohojhebkbehikep?hl=en-US
 
 Useless fact: Chromnitweet is a portmanteau of Chrome, Omnibox and Tweet.
+
+INSTALLATION
+============
+
+- Copy settings.example.js to settings.js.
+- Open settings.js and add your Twitter OAuth info.
+- If you have GNU make and zip installed, run `make` to create a package.
