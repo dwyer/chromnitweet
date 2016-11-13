@@ -14,6 +14,7 @@
         "scripts": [
             "chrome_ex_oauthsimple.js",
             "chrome_ex_oauth.js",
+            "onload.js",
             "background.js"
         ],
         "persistent": false
