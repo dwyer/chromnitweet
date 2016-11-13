@@ -12,8 +12,9 @@
     },
     "background": {
         "scripts": [
-            "chrome_ex_oauth.min.js",
-            "background.min.js"
+            "chrome_ex_oauthsimple.js",
+            "chrome_ex_oauth.js",
+            "background.js"
         ],
         "persistent": false
     },
