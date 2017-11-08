@@ -1,7 +1,7 @@
 Chromnitweet is a Google Chrome (or Chromium) extension that acts as a Twitter
 client, allowing the user to post tweet (status update or direct message)
 directly from the Omnibox (Omnibar, awesome bar, URL bar, location bar, etc.)
-with the syntax "tw [some string of 140 or less characters]".
+with the syntax "tw [some string of 280 or less characters]".
 
 https://chrome.google.com/webstore/detail/ofhffnelacegjkgcbohojhebkbehikep?hl=en-US
 
