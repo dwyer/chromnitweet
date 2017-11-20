@@ -2,7 +2,7 @@
     "name": "Chromnitweet",
     "short_name": "Chromnitweet",
     "manifest_version": 2,
-    "version": "2.8.0",
+    "version": "2.8.1",
     "description": "Update your Twitter status right from Chrome's Omnibox (URL bar).",
     "omnibox": {"keyword": "tw"},
     "icons": {
@@ -22,6 +22,6 @@
         "persistent": false
     },
     "web_accessible_resources": ["chrome_ex_oauth.html"],
-    "permissions": ["notifications", "tabs", "https://api.twitter.com/", "https://abs.twimg.com/"],
-    "content_security_policy": "script-src 'self'; object-src 'self'; img-src 'self' https://abs.twimg.com"
+    "permissions": ["notifications", "tabs", "https://api.twitter.com/", "https://*.twimg.com/"],
+    "content_security_policy": "script-src 'self'; object-src 'self'; img-src 'self' https://*.twimg.com"
 }
